@@ -1,0 +1,20 @@
+modules = ["web", "nodejs-20"]
+
+[nix]
+channel = "stable-25_05"
+
+[workflows]
+runButton = "Preview Webpage"
+
+[[workflows.workflow]]
+name = "Preview Webpage"
+mode = "sequential"
+author = 35500445
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npx http-server . -p 8000"
+
+[[ports]]
+localPort = 8000
+externalPort = 80
